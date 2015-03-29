@@ -2,7 +2,8 @@
 localhost
 [qhc]
 qtr-horse.com
-[ec2:children]
-us-west-2
+[ec2]
 [us-west-2]
+[tag_Name_WebServer]
+[tag_Site_WeatherMap]
 
