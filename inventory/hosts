@@ -1,0 +1,8 @@
+[local]
+localhost
+[qhc]
+qtr-horse.com
+[ec2:children]
+us-west-2
+[us-west-2]
+
