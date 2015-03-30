@@ -1,0 +1,11 @@
+---
+# The playbook installs EC2 WebServers
+
+- hosts: tag_Name_WebServer
+  user: root
+  tasks:
+   - name: Install Python_MySQLDb
+     apt: 
+        name: python-mysqldb
+        state: present
+     sudo: yes

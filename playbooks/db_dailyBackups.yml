@@ -1,0 +1,29 @@
+---
+# The playbook backs up remote databases and sends the file to the Ansible Master.
+
+- hosts: tag_Name_WebServer:&tag_Site_WeatherMap
+  user: root
+  tasks:
+   - name: Create folder if needed
+     sudo: yes
+     file:
+        dest: /var/db_backups
+        mode: 0775
+        owner: ubuntu
+        group: ubuntu
+        state: directory
+   - name: Backup Weather Database
+     sudo: yes
+     mysql_db: 
+        login_user: jack
+        login_password: 246*8531
+        name: weather
+        state: dump
+        target: /var/db_backups/weather.bz2
+   - name: Copy Backup file to Ansible Master
+     sudo: yes
+     fetch: 
+        src: /var/db_backups/weather.bz2
+        dest: /var/db_backups/
+        validate_checksum: yes
+
